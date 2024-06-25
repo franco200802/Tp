@@ -59,7 +59,7 @@ void inicializarLaberinto() {
     for (int i = 0; i < FILAS; i++) {
         for (int j = 0; j < COLUMNAS; j++) {
             if (i == 0 || i == FILAS - 1 || j == 0 || j == COLUMNAS - 1) {
-                laberinto[i][j] = '#'; // Paredes exteriores
+                laberinto[i][j] = '-'; // Paredes exteriores
             } else {
                 laberinto[i][j] = ' '; // Espacio vacío
             }
@@ -70,7 +70,7 @@ void inicializarLaberinto() {
     for (int i = 2; i < FILAS - 2; i += 2) {
         for (int j = 2; j < COLUMNAS - 2; j += 2) {
             if (rand() % 2 == 0) {
-                laberinto[i][j] = '#'; // Pared interior
+                laberinto[i][j] = '-'; // Pared interior
             }
         }
     }
@@ -115,7 +115,7 @@ void moverJugador(Key movimiento) {
             break;
     }
 
-    if (laberinto[nuevaY][nuevaX] != '#') {
+    if (laberinto[nuevaY][nuevaX] != '-') {
         laberinto[jugadorY][jugadorX] = ' ';
         jugadorX = nuevaX;
         jugadorY = nuevaY;
