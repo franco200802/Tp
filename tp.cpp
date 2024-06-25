@@ -22,10 +22,6 @@ void setup_terminal() {
     tcsetattr(STDIN_FILENO, TCSANOW, &nuevotermios);
 }
 
-void restore_terminal() {
-    tcsetattr(STDIN_FILENO, TCSANOW, &terminosoriginal);
-}
-
 char getch() {
     char buf = 0;
     if (read(STDIN_FILENO, &buf, 1) < 0) {
@@ -144,7 +140,6 @@ void juegoLaberinto() {
         }
     }
 
-    restore_terminal();
 }
 
 void juegoAdivinanza() {
